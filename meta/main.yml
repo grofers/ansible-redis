@@ -18,15 +18,6 @@ dependencies:
       - name: 'redis-sentinel'
         port: '{{ redis_sentinel_port }}'
 
-  - role: debops.ferm
-    ferm_input_group_list:
-      - type: 'dport_accept'
-        dport: ['redis-server']
-        saddr: '{{ redis_server_allow }}'
-      - type: 'dport_accept'
-        dport: ['redis-sentinel']
-        saddr: '{{ redis_sentinel_allow }}'
-
 galaxy_info:
   author: 'Nick Janetakis'
   description: 'Install and manage Redis cluster'
